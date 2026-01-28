@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>How I verify a Linux service change | Rafael Ortiz Navarro</title>
+    <meta name="description"
+        content="A short, practical checklist to verify Linux service changes: systemctl, logs, ports, and evidence." />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap"
+        rel="stylesheet" />
+
+    <script>
+        tailwind = window.tailwind || {};
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ["Space Grotesk", "ui-sans-serif", "system-ui", "sans-serif"],
+                        mono: ["IBM Plex Mono", "ui-monospace", "SFMono-Regular", "Menlo", "monospace"],
+                    },
+                },
+            },
+        };
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="stylesheet" href="../css/styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+
+<body class="bg-slate-950 text-slate-200 font-sans antialiased">
+    <header class="border-b border-slate-800 bg-slate-950/80 backdrop-blur-md sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4 flex items-center justify-between">
+            <a href="../index.html#blog" class="text-slate-300 hover:text-white transition-colors">
+                <i class="fa-solid fa-arrow-left mr-2"></i>Back to Blog
+            </a>
+            <a href="../index.html#home"
+                class="font-mono text-transparent bg-clip-text bg-gradient-to-r from-teal-300 to-sky-400 text-lg font-bold">&lt;RafaelOrtiz
+                /&gt;</a>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-6 py-16 max-w-3xl">
+        <div class="flex items-center gap-3 text-slate-400 text-sm mb-3">
+            <span class="inline-flex items-center gap-2"><i class="fa-brands fa-linux text-slate-400"></i>Notes</span>
+            <span class="text-slate-600">•</span>
+            <span>2025-2026</span>
+        </div>
+
+        <h1 class="text-4xl font-bold leading-tight mb-6">How I verify a Linux service change</h1>
+
+        <p class="text-slate-400 leading-relaxed mb-10">
+            This is a short checklist I use after changing a Linux service configuration. The goal is simple:
+            confirm the change is applied, the service is healthy, and the evidence is easy to show in a write-up.
+        </p>
+
+        <section class="space-y-4">
+            <h2 class="text-xl font-bold">1) Confirm what changed</h2>
+            <p class="text-slate-400">
+                Before restarting anything, I record the exact file I edited and keep a rollback copy.
+            </p>
+            <div class="bg-slate-900 border border-slate-800 rounded-xl p-5 font-mono text-sm text-slate-200">
+                <div class="text-slate-400 mb-2">Example commands</div>
+                <pre class="whitespace-pre-wrap">sudo cp /etc/&lt;service&gt;/&lt;config&gt; /etc/&lt;service&gt;/&lt;config&gt;.bak
+sudo nano /etc/&lt;service&gt;/&lt;config&gt;</pre>
+            </div>
+            <p class="text-xs text-slate-500">
+                Placeholder: replace &lt;service&gt; and &lt;config&gt; with your real paths.
+            </p>
+        </section>
+
+        <section class="space-y-4 mt-10">
+            <h2 class="text-xl font-bold">2) Restart + check status</h2>
+            <div class="bg-slate-900 border border-slate-800 rounded-xl p-5 font-mono text-sm text-slate-200">
+                <pre class="whitespace-pre-wrap">sudo systemctl restart &lt;service&gt;
+sudo systemctl status &lt;service&gt; --no-pager</pre>
+            </div>
+            <p class="text-slate-400">
+                If status is not "active (running)", I do not continue. I open logs first.
+            </p>
+        </section>
+
+        <section class="space-y-4 mt-10">
+            <h2 class="text-xl font-bold">3) Read logs (fast)</h2>
+            <div class="bg-slate-900 border border-slate-800 rounded-xl p-5 font-mono text-sm text-slate-200">
+                <pre class="whitespace-pre-wrap">sudo journalctl -u &lt;service&gt; -n 80 --no-pager
+sudo journalctl -u &lt;service&gt; -S "10 min ago" --no-pager</pre>
+            </div>
+            <p class="text-slate-400">
+                Evidence tip: I screenshot the relevant error line (or success line) and include it in my PDF.
+            </p>
+        </section>
+
+        <section class="space-y-4 mt-10">
+            <h2 class="text-xl font-bold">4) Validate network behavior (if applicable)</h2>
+            <div class="bg-slate-900 border border-slate-800 rounded-xl p-5 font-mono text-sm text-slate-200">
+                <pre class="whitespace-pre-wrap">sudo ss -lntp | head
+curl -I http://localhost:&lt;port&gt;  # if it's an HTTP service</pre>
+            </div>
+            <p class="text-slate-400">
+                If it is a remote service, I test from a second machine (client perspective).
+            </p>
+        </section>
+
+        <section class="space-y-4 mt-10">
+            <h2 class="text-xl font-bold">5) Capture evidence for the portfolio</h2>
+            <ul class="list-disc pl-6 text-slate-300 space-y-2">
+                <li>Before/after screenshot (or config diff)</li>
+                <li><code class="font-mono">systemctl status</code> after restart</li>
+                <li>Relevant log lines (error or success)</li>
+                <li>Functional test output (curl/ssh/getent/etc.)</li>
+            </ul>
+            <p class="text-xs text-slate-500 mt-3">
+                Placeholder: add your own screenshots later. You can replace this entire post with a longer version
+                when you have more material.
+            </p>
+        </section>
+
+        <div class="mt-14 p-5 rounded-2xl border border-slate-800 bg-slate-900/40">
+            <div class="text-sm text-slate-400">Reflection prompt</div>
+            <div class="font-bold mt-1">What was the hardest part of this change, and how did you prove it was fixed?</div>
+        </div>
+    </main>
+
+    <footer class="border-t border-slate-800 bg-slate-900 py-8">
+        <div class="container mx-auto px-6 text-center text-slate-500 text-sm">
+            <p>&copy; <span id="year"></span> Rafael Ortiz Navarro. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        const yearEl = document.getElementById("year");
+        if (yearEl) yearEl.textContent = new Date().getFullYear();
+    </script>
+
+    <!--Start of Tawk.to Script-->
+    <script type="text/javascript">
+        var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+        (function () {
+            var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+            s1.async = true;
+            s1.src = 'https://embed.tawk.to/697529746fc10119810a239a/1jfoqjsf4';
+            s1.charset = 'UTF-8';
+            s1.setAttribute('crossorigin', '*');
+            s0.parentNode.insertBefore(s1, s0);
+        })();
+    </script>
+    <!--End of Tawk.to Script-->
+</body>
+
+</html>

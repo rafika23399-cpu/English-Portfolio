@@ -1,0 +1,129 @@
+/* Custom CSS on top of Tailwind CDN.
+   Keep this file small: Tailwind utilities handle most of the layout. */
+
+:root {
+    color-scheme: dark;
+}
+
+body {
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+    background: rgba(45, 212, 191, 0.25);
+}
+
+/* Animated "typewriter" cursor (text is set by JS). */
+.typewriter::after {
+    content: " |";
+    opacity: 0.9;
+    animation: tw-blink 1s steps(1) infinite;
+}
+
+@keyframes tw-blink {
+    50% {
+        opacity: 0;
+    }
+}
+
+/* Light-touch reveal animations used by existing markup. */
+.fade-in-up {
+    animation: fadeInUp 700ms ease-out both;
+}
+
+.fade-in-left {
+    animation: fadeInLeft 700ms ease-out both;
+}
+
+.fade-in-right {
+    animation: fadeInRight 700ms ease-out both;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(14px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-16px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(16px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes spin-slow {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes spin-reverse {
+    from {
+        transform: rotate(360deg);
+    }
+    to {
+        transform: rotate(0deg);
+    }
+}
+
+.animate-spin-slow {
+    animation: spin-slow 12s linear infinite;
+}
+
+.animate-spin-reverse-slow {
+    animation: spin-reverse 8s linear infinite;
+}
+
+/* Make <summary> look clean across browsers. */
+details > summary {
+    list-style: none;
+}
+details > summary::-webkit-details-marker {
+    display: none;
+}
+
+/* Fallbacks for a couple of Tailwind variants/utilities used in the markup. */
+.\-z-10 {
+    z-index: -10;
+}
+
+details[open] .group-open\:rotate-180 {
+    transform: rotate(180deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .fade-in-up,
+    .fade-in-left,
+    .fade-in-right,
+    .animate-spin-slow,
+    .animate-spin-reverse-slow,
+    .typewriter::after {
+        animation: none !important;
+    }
+}

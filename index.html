@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rafael Ortiz Navarro | Systems & Security Portfolio</title>
+    <meta name="description"
+        content="Portfolio website for Professional English (CFGS): systems administration and security learning progress, projects, and documentation.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap"
+        rel="stylesheet">
+
+    <!-- Tailwind (CDN) -->
+    <script>
+        tailwind = window.tailwind || {};
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ["Space Grotesk", "ui-sans-serif", "system-ui", "sans-serif"],
+                        mono: ["IBM Plex Mono", "ui-monospace", "SFMono-Regular", "Menlo", "monospace"],
+                    },
+                },
+            },
+        };
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body class="bg-slate-950 text-slate-200 font-sans antialiased">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-slate-950/80 backdrop-blur-md border-b border-slate-800 transition-all duration-300"
+        id="navbar">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#home"
+                class="text-2xl font-bold font-mono text-transparent bg-clip-text bg-gradient-to-r from-teal-300 to-sky-400">
+                &lt;RafaelOrtiz /&gt;
+            </a>
+
+            <div class="hidden md:flex gap-12">
+                <a href="#home"
+                    class="nav-link text-slate-300 hover:text-white hover:bg-teal-500/20 px-3 py-2 rounded-lg transition-all">Home</a>
+                <a href="#about"
+                    class="nav-link text-slate-300 hover:text-white hover:bg-teal-500/20 px-3 py-2 rounded-lg transition-all">About</a>
+                <a href="#projects"
+                    class="nav-link text-slate-300 hover:text-white hover:bg-teal-500/20 px-3 py-2 rounded-lg transition-all">Projects</a>
+                <a href="#deliverables"
+                    class="nav-link text-slate-300 hover:text-white hover:bg-teal-500/20 px-3 py-2 rounded-lg transition-all">Deliverables</a>
+                <a href="#services"
+                    class="nav-link text-slate-300 hover:text-white hover:bg-teal-500/20 px-3 py-2 rounded-lg transition-all">Services</a>
+                <a href="#blog"
+                    class="nav-link text-slate-300 hover:text-white hover:bg-teal-500/20 px-3 py-2 rounded-lg transition-all">Blog</a>
+                <a href="#achievements"
+                    class="nav-link text-slate-300 hover:text-white hover:bg-teal-500/20 px-3 py-2 rounded-lg transition-all">Achievements</a>
+                <a href="#faq"
+                    class="nav-link text-slate-300 hover:text-white hover:bg-teal-500/20 px-3 py-2 rounded-lg transition-all">FAQs</a>
+                <a href="#contact"
+                    class="nav-link text-slate-300 hover:text-white hover:bg-teal-500/20 px-3 py-2 rounded-lg transition-all">Contact</a>
+            </div>
+
+            <button id="mobile-menu-btn" class="md:hidden text-2xl focus:outline-none">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-slate-900 border-t border-slate-800 absolute w-full">
+            <div class="flex flex-col p-6 space-y-4">
+                <a href="#home" class="mobile-link hover:text-teal-400">Home</a>
+                <a href="#about" class="mobile-link hover:text-teal-400">About</a>
+                <a href="#projects" class="mobile-link hover:text-teal-400">Projects</a>
+                <a href="#deliverables" class="mobile-link hover:text-teal-400">Deliverables</a>
+                <a href="#services" class="mobile-link hover:text-teal-400">Services</a>
+                <a href="#blog" class="mobile-link hover:text-teal-400">Blog</a>
+                <a href="#achievements" class="mobile-link hover:text-teal-400">Achievements</a>
+                <a href="#faq" class="mobile-link hover:text-teal-400">FAQs</a>
+                <a href="#contact" class="mobile-link hover:text-teal-400">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center pt-20 relative overflow-hidden">
+        <!-- Background Elements -->
+        <div class="absolute top-0 left-0 w-full h-full overflow-hidden -z-10">
+            <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-teal-500/10 rounded-full blur-3xl"></div>
+            <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-sky-500/10 rounded-full blur-3xl"></div>
+        </div>
+
+        <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+            <div class="space-y-6 fade-in-up">
+                <p class="text-teal-300 font-mono">Hello, world. I'm</p>
+                <h1 class="text-5xl md:text-7xl font-bold leading-tight">
+                    Rafael Ortiz Navarro
+                </h1>
+                <h2 class="text-2xl md:text-3xl text-slate-400">
+                    <span class="typewriter text-sky-300"></span>
+                </h2>
+                <p class="text-slate-400 max-w-lg leading-relaxed">
+                    A CFGS ASIX student with a cybersecurity mindset. I build lab projects, document what I learn, and
+                    communicate results clearly in English.
+                </p>
+                <p class="text-xs text-slate-500 max-w-lg">
+                    Note: This is a classroom portfolio for "Professional English" (2025-2026). The profile is
+                    fictionalized, but the learning progress and artifacts are based on real coursework.
+                </p>
+                <div class="flex gap-4 pt-4">
+                    <a href="#projects"
+                        class="px-8 py-3 bg-teal-500 hover:bg-teal-600 text-slate-950 font-bold rounded-lg transition-all transform hover:-translate-y-1">
+                        View Projects
+                    </a>
+                    <a href="#contact"
+                        class="px-8 py-3 border border-slate-700 hover:border-teal-500 hover:text-teal-400 rounded-lg transition-all">
+                        Contact Me
+                    </a>
+                </div>
+                <div class="flex gap-6 pt-4 text-2xl text-slate-400">
+                    <a href="https://github.com/rafika23399-cpu" target="_blank" rel="noopener"
+                        class="hover:text-white transition-colors" aria-label="GitHub">
+                        <i class="fa-brands fa-github"></i>
+                    </a>
+                    <a href="#contact" class="hover:text-sky-300 transition-colors" aria-label="LinkedIn">
+                        <i class="fa-brands fa-linkedin"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="relative fade-in-up flex justify-center" style="animation-delay: 200ms;">
+                <div class="relative w-80 h-80 md:w-96 md:h-96">
+                    <div class="absolute inset-0 border-2 border-teal-500/30 rounded-full animate-spin-slow"></div>
+                    <div class="absolute inset-4 border-2 border-sky-500/30 rounded-full animate-spin-reverse-slow">
+                    </div>
+                    <!-- Placeholder for Image -->
+                    <div
+                        class="absolute inset-0 m-8 rounded-full bg-slate-800 overflow-hidden flex items-center justify-center border border-slate-700">
+                        <i class="fa-solid fa-user-astronaut text-6xl text-slate-600"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-slate-900/50">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row gap-16 items-center">
+                <div class="md:w-1/2 fade-in-left">
+                    <h2 class="text-3xl font-bold mb-6">About <span class="text-teal-400">Me</span></h2>
+                    <p class="text-slate-400 mb-6 leading-relaxed">
+                        I am currently studying ASIX (Systems Administration) and building a strong base in software and
+                        databases. This combination helps me understand both the applications and the infrastructure
+                        they depend on.
+                    </p>
+                    <p class="text-slate-400 mb-6 leading-relaxed">
+                        I enjoy structured troubleshooting: define the goal, apply changes safely, verify results, and
+                        document the process so it can be repeated by others.
+                    </p>
+
+                    <div class="grid grid-cols-2 gap-6 mt-8">
+                        <div>
+                            <h3 class="font-mono text-teal-400 mb-4">&lt;ASIX Skills /&gt;</h3>
+                            <ul class="space-y-2 text-sm text-slate-300">
+                                <li><i class="fa-solid fa-check text-sky-500 mr-2"></i>Linux services & logs</li>
+                                <li><i class="fa-solid fa-check text-sky-500 mr-2"></i>Networking basics</li>
+                                <li><i class="fa-solid fa-check text-sky-500 mr-2"></i>SSH & access control</li>
+                                <li><i class="fa-solid fa-check text-sky-500 mr-2"></i>Virtualization (lab)</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 class="font-mono text-sky-300 mb-4">&lt;Build Skills /&gt;</h3>
+                            <ul class="space-y-2 text-sm text-slate-300">
+                                <li><i class="fa-solid fa-check text-teal-500 mr-2"></i>Java & C#</li>
+                                <li><i class="fa-solid fa-check text-teal-500 mr-2"></i>SQL (modeling + queries)</li>
+                                <li><i class="fa-solid fa-check text-teal-500 mr-2"></i>Web basics (HTML/CSS/JS)</li>
+                                <li><i class="fa-solid fa-check text-teal-500 mr-2"></i>Git (basic)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!-- Interactive Terminal or Skill Bars -->
+                <div class="md:w-1/2 w-full fade-in-right">
+                    <div class="bg-slate-950 rounded-lg border border-slate-800 shadow-2xl overflow-hidden">
+                        <div class="bg-slate-900 px-4 py-2 border-b border-slate-800 flex items-center gap-2">
+                            <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                            <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                            <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                            <span class="text-xs text-slate-500 ml-2 font-mono">user@rafa-pc:~/portfolio</span>
+                        </div>
+                        <div class="p-6 font-mono text-sm space-y-4">
+                            <div class="flex">
+                                <span class="text-teal-300 mr-2">➜</span>
+                                <span class="text-sky-300 mr-2">~</span>
+                                <span class="typewriter-code">whoami</span>
+                            </div>
+                            <div class="text-slate-300">
+                                > ASIX student building systems skills and writing clear technical English.
+                            </div>
+
+                            <div class="flex">
+                                <span class="text-teal-300 mr-2">➜</span>
+                                <span class="text-sky-300 mr-2">~</span>
+                                <span>cat focus.json</span>
+                            </div>
+                            <div class="text-yellow-300">
+                                {<br>
+                                &nbsp;&nbsp;"degree": "CFGS ASIX",<br>
+                                &nbsp;&nbsp;"status": "In Progress",<br>
+                                &nbsp;&nbsp;"focus": ["Linux", "Identity", "Security basics", "SQL"]<br>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold mb-12 text-center">Featured <span class="text-sky-300">Projects</span></h2>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div
+                    class="bg-slate-900 rounded-xl overflow-hidden border border-slate-800 hover:border-teal-500 transition-all group">
+                    <div class="h-48 bg-slate-800 relative overflow-hidden">
+                        <!-- Placeholder for visual -->
+                        <div
+                            class="absolute inset-0 flex items-center justify-center text-slate-600 font-mono text-4xl">
+                            <i class="fa-solid fa-network-wired"></i>
+                        </div>
+                        <div
+                            class="absolute inset-0 bg-slate-950/80 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                            <a href="assets/pdfs/active-directory.pdf" target="_blank" rel="noopener"
+                                class="px-6 py-2 bg-teal-500 text-slate-950 font-bold rounded-lg transform translate-y-4 group-hover:translate-y-0 transition-all">Open
+                                PDF</a>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="text-xl font-bold text-slate-200">Active Directory Integration (Lab)</h3>
+                            <span class="text-xs font-mono py-1 px-2 rounded bg-teal-500/10 text-teal-300">ISO / UF2</span>
+                        </div>
+                        <p class="text-slate-400 text-sm mb-4">
+                            Join a Linux client to a directory environment, validate authentication, and document every
+                            step with verification commands and evidence.
+                        </p>
+                        <a href="assets/pdfs/active-directory.pdf" target="_blank" rel="noopener"
+                            class="inline-flex items-center gap-2 text-sm font-bold text-teal-300 hover:text-teal-200 transition-colors mb-4">
+                            <i class="fa-solid fa-file-pdf"></i> Evidence (PDF)
+                        </a>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-xs text-slate-500 border border-slate-700 px-2 py-1 rounded">Windows AD</span>
+                            <span class="text-xs text-slate-500 border border-slate-700 px-2 py-1 rounded">Ubuntu</span>
+                            <span class="text-xs text-slate-500 border border-slate-700 px-2 py-1 rounded">SSSD/Realm</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div
+                    class="bg-slate-900 rounded-xl overflow-hidden border border-slate-800 hover:border-sky-500 transition-all group">
+                    <div class="h-48 bg-slate-800 relative overflow-hidden">
+                        <div
+                            class="absolute inset-0 flex items-center justify-center text-slate-600 font-mono text-4xl">
+                            <i class="fa-solid fa-code"></i>
+                        </div>
+                        <div
+                            class="absolute inset-0 bg-slate-950/80 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                            <a href="assets/pdfs/openldap-client.pdf" target="_blank" rel="noopener"
+                                class="px-6 py-2 bg-sky-400 text-slate-950 font-bold rounded-lg transform translate-y-4 group-hover:translate-y-0 transition-all">Open
+                                PDF</a>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="text-xl font-bold text-slate-200">OpenLDAP Client + Server (Lab)</h3>
+                            <span class="text-xs font-mono py-1 px-2 rounded bg-sky-500/10 text-sky-300">ISO / UF2</span>
+                        </div>
+                        <p class="text-slate-400 text-sm mb-4">
+                            Set up LDAP lookup and login checks from a client machine and learn how to validate identity
+                            data with reliable commands (e.g., getent).
+                        </p>
+                        <a href="assets/pdfs/openldap-client.pdf" target="_blank" rel="noopener"
+                            class="inline-flex items-center gap-2 text-sm font-bold text-sky-300 hover:text-sky-200 transition-colors mb-4">
+                            <i class="fa-solid fa-file-pdf"></i> Evidence (PDF)
+                        </a>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-xs text-slate-500 border border-slate-700 px-2 py-1 rounded">OpenLDAP</span>
+                            <span class="text-xs text-slate-500 border border-slate-700 px-2 py-1 rounded">NSS/PAM</span>
+                            <span class="text-xs text-slate-500 border border-slate-700 px-2 py-1 rounded">Troubleshooting</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div
+                    class="bg-slate-900 rounded-xl overflow-hidden border border-slate-800 hover:border-blue-500 transition-all group">
+                    <div class="h-48 bg-slate-800 relative overflow-hidden">
+                        <div
+                            class="absolute inset-0 flex items-center justify-center text-slate-600 font-mono text-4xl">
+                            <i class="fa-brands fa-python"></i>
+                        </div>
+                        <div
+                            class="absolute inset-0 bg-slate-950/80 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                            <a href="assets/pdfs/ssh-certificates.pdf" target="_blank" rel="noopener"
+                                class="px-6 py-2 bg-blue-500 text-slate-950 font-bold rounded-lg transform translate-y-4 group-hover:translate-y-0 transition-all">Open
+                                PDF</a>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="text-xl font-bold text-slate-200">SSH Keys + Certificate Workflow</h3>
+                            <span class="text-xs font-mono py-1 px-2 rounded bg-blue-500/10 text-blue-400">Security</span>
+                        </div>
+                        <p class="text-slate-400 text-sm mb-4">
+                            Replace password-based access with keys, verify permissions, and document a secure login
+                            flow with screenshots and validation commands.
+                        </p>
+                        <a href="assets/pdfs/ssh-certificates.pdf" target="_blank" rel="noopener"
+                            class="inline-flex items-center gap-2 text-sm font-bold text-blue-400 hover:text-blue-300 transition-colors mb-4">
+                            <i class="fa-solid fa-file-pdf"></i> Evidence (PDF)
+                        </a>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-xs text-slate-500 border border-slate-700 px-2 py-1 rounded">OpenSSH</span>
+                            <span class="text-xs text-slate-500 border border-slate-700 px-2 py-1 rounded">Permissions</span>
+                            <span class="text-xs text-slate-500 border border-slate-700 px-2 py-1 rounded">Evidence</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-12 max-w-4xl mx-auto bg-slate-900/40 border border-slate-800 rounded-2xl p-6">
+                <h3 class="text-xl font-bold mb-3">Professional English progress</h3>
+                <p class="text-slate-400 text-sm mb-4">
+                    This section tracks my work for the subject across the year (daily tasks, professional challenges,
+                    and presentations). I will attach PDFs and evidence as we deliver them.
+                </p>
+                <ol class="space-y-3 text-slate-300 text-sm">
+                    <li><span class="text-teal-300 font-bold">Portfolio website</span> - initial draft + continuous updates.</li>
+                    <li><span class="text-teal-300 font-bold">Writing</span> - professional emails, short reports, and summaries.</li>
+                    <li><span class="text-teal-300 font-bold">Speaking</span> - short presentations (mandatory) with clear structure.</li>
+                    <li><span class="text-teal-300 font-bold">Reflection</span> - what I improved and what I will practice next.</li>
+                </ol>
+            </div>
+
+            <div class="text-center mt-12">
+                <a href="#blog"
+                    class="inline-block border-b border-teal-500 text-teal-300 hover:text-teal-200 transition-colors pb-1">Read
+                    my notes <i class="fa-solid fa-arrow-right ml-2 text-sm"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Deliverables Section (Professional English) -->
+    <section id="deliverables" class="py-20 bg-slate-900/30">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold mb-4 text-center">Professional English <span class="text-teal-300">Deliverables</span></h2>
+            <p class="text-slate-400 text-center max-w-3xl mx-auto">
+                This is the section my English teacher can use to view and download the tasks we submit during the year
+                (Daily tasks, Professional Challenges, Speaking, and Exams).
+            </p>
+
+            <div class="mt-10 max-w-5xl mx-auto">
+                <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-6">
+                    <div class="text-sm text-slate-500">
+                        Tip: I add new items by uploading the PDF and updating a small list in <code class="font-mono">js/content.js</code>.
+                    </div>
+                    <a href="#contact"
+                        class="inline-flex items-center justify-center gap-2 px-5 py-2 bg-slate-800 hover:bg-slate-700 rounded-lg transition-colors">
+                        <i class="fa-solid fa-paper-plane text-teal-300"></i>
+                        <span class="font-bold">Request a document</span>
+                    </a>
+                </div>
+
+                <div id="deliverables-list" class="grid md:grid-cols-2 gap-6">
+                    <!-- Filled by JS (js/content.js + js/main.js). -->
+                </div>
+
+                <div id="deliverables-empty" class="hidden border border-slate-800 bg-slate-950 rounded-2xl p-6 text-center">
+                    <p class="text-slate-300 font-bold">No deliverables uploaded yet.</p>
+                    <p class="text-slate-500 text-sm mt-2">
+                        The first tasks will appear here as soon as we start submitting work in class.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-slate-900/30">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold mb-12 text-center">My <span class="text-teal-400">Services</span></h2>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Service 1 -->
+                <div class="p-6 bg-slate-950 border border-slate-800 rounded-xl hover:bg-slate-900 transition-colors">
+                    <div
+                        class="w-12 h-12 bg-teal-500/20 rounded-lg flex items-center justify-center text-teal-400 text-xl mb-4">
+                        <i class="fa-solid fa-server"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2">SysAdmin</h3>
+                    <p class="text-slate-400 text-sm">Linux basics, services, logs, SSH access, and repeatable lab
+                        setups (student level).</p>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="p-6 bg-slate-950 border border-slate-800 rounded-xl hover:bg-slate-900 transition-colors">
+                    <div class="w-12 h-12 bg-sky-500/20 rounded-lg flex items-center justify-center text-sky-300 text-xl mb-4">
+                        <i class="fa-solid fa-code"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2">Documentation</h3>
+                    <p class="text-slate-400 text-sm">Clear step-by-step guides with verification, screenshots, and
+                        technical English writing.</p>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="p-6 bg-slate-950 border border-slate-800 rounded-xl hover:bg-slate-900 transition-colors">
+                    <div
+                        class="w-12 h-12 bg-blue-500/20 rounded-lg flex items-center justify-center text-blue-400 text-xl mb-4">
+                        <i class="fa-solid fa-shield-halved"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2">IT Security</h3>
+                    <p class="text-slate-400 text-sm">Security fundamentals: least privilege, safe configs, and a
+                        verification mindset (lab).</p>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="p-6 bg-slate-950 border border-slate-800 rounded-xl hover:bg-slate-900 transition-colors">
+                    <div
+                        class="w-12 h-12 bg-yellow-500/20 rounded-lg flex items-center justify-center text-yellow-400 text-xl mb-4">
+                        <i class="fa-solid fa-screwdriver-wrench"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2">SQL Support</h3>
+                    <p class="text-slate-400 text-sm">Schema review, normalization notes, and writing readable queries
+                        for coursework.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section id="blog" class="py-20">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold mb-12 text-center">Latest <span class="text-slate-400">Articles</span></h2>
+            <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <a href="blog/how-i-verify-a-linux-service-change.html" class="flex gap-4 items-start group">
+                    <div
+                        class="w-24 h-24 bg-slate-800 rounded-lg shrink-0 flex items-center justify-center text-2xl text-slate-600">
+                        <i class="fa-brands fa-linux"></i>
+                    </div>
+                    <div>
+                        <div class="text-xs text-teal-300 mb-1">2025-2026 • Notes</div>
+                        <h3 class="text-xl font-bold group-hover:text-teal-300 transition-colors">How I verify a Linux
+                            service change</h3>
+                        <p class="text-slate-400 text-sm mt-2">My checklist: systemctl status, logs, network checks, and
+                            what I document for evidence.</p>
+                    </div>
+                </a>
+
+                <a href="blog/ldap-vs-active-directory-mental-model.html" class="flex gap-4 items-start group">
+                    <div
+                        class="w-24 h-24 bg-slate-800 rounded-lg shrink-0 flex items-center justify-center text-2xl text-slate-600">
+                        <i class="fa-solid fa-database"></i>
+                    </div>
+                    <div>
+                        <div class="text-xs text-sky-300 mb-1">2025-2026 • Portfolio</div>
+                        <h3 class="text-xl font-bold group-hover:text-sky-300 transition-colors">LDAP vs Active
+                            Directory: the mental model</h3>
+                        <p class="text-slate-400 text-sm mt-2">A beginner-friendly comparison based on my lab practice:
+                            concepts, common issues, and verification commands.</p>
+                    </div>
+                </a>
+
+                <a href="blog/ssh-keys-permissions-checklist.html" class="flex gap-4 items-start group">
+                    <div
+                        class="w-24 h-24 bg-slate-800 rounded-lg shrink-0 flex items-center justify-center text-2xl text-slate-600">
+                        <i class="fa-solid fa-key"></i>
+                    </div>
+                    <div>
+                        <div class="text-xs text-blue-300 mb-1">2025-2026 • Security</div>
+                        <h3 class="text-xl font-bold group-hover:text-blue-300 transition-colors">SSH keys and
+                            permissions: my quick checklist</h3>
+                        <p class="text-slate-400 text-sm mt-2">The 5 mistakes I check first (and the commands that prove
+                            it works).</p>
+                    </div>
+                </a>
+
+                <a href="blog/how-i-write-clear-technical-english.html" class="flex gap-4 items-start group">
+                    <div
+                        class="w-24 h-24 bg-slate-800 rounded-lg shrink-0 flex items-center justify-center text-2xl text-slate-600">
+                        <i class="fa-solid fa-pen-nib"></i>
+                    </div>
+                    <div>
+                        <div class="text-xs text-teal-300 mb-1">2025-2026 • Writing</div>
+                        <h3 class="text-xl font-bold group-hover:text-teal-300 transition-colors">How I write clear
+                            technical English</h3>
+                        <p class="text-slate-400 text-sm mt-2">My structure for lab write-ups: purpose, steps,
+                            verification, and evidence.</p>
+                    </div>
+                </a>
+            </div>
+
+            <div class="text-center mt-12">
+                <a href="#projects"
+                    class="inline-block border-b border-slate-600 text-slate-300 hover:text-white transition-colors pb-1">Back
+                    to Projects <i class="fa-solid fa-arrow-right ml-2 text-sm"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements Section -->
+    <section id="achievements" class="py-20 bg-slate-900/50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold mb-12 text-center">Achievements & <span
+                    class="text-teal-400">Certifications</span></h2>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <div
+                    class="flex gap-4 items-start p-6 border border-slate-800 rounded-xl bg-slate-950 hover:border-teal-500 transition-colors">
+                    <div
+                        class="shrink-0 w-16 h-16 bg-teal-500/10 rounded-full flex items-center justify-center text-teal-400 text-2xl">
+                        <i class="fa-solid fa-certificate"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-1">ISO UF1: 10/10</h3>
+                        <p class="text-sm text-slate-500 mb-2">Academic milestone</p>
+                        <p class="text-slate-400 text-sm">Strong foundation in system administration workflows and
+                            evidence-based documentation.</p>
+                    </div>
+                </div>
+
+                <div
+                    class="flex gap-4 items-start p-6 border border-slate-800 rounded-xl bg-slate-950 hover:border-sky-500 transition-colors">
+                    <div
+                        class="shrink-0 w-16 h-16 bg-sky-500/10 rounded-full flex items-center justify-center text-sky-300 text-2xl">
+                        <i class="fa-solid fa-trophy"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-1">Lab Portfolio Habit</h3>
+                        <p class="text-sm text-slate-500 mb-2">Consistency</p>
+                        <p class="text-slate-400 text-sm">I keep structured write-ups with checks, screenshots, and a
+                            clear outcome for each lab activity.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="py-20">
+        <div class="container mx-auto px-6 max-w-3xl">
+            <h2 class="text-3xl font-bold mb-12 text-center">Frequently Asked <span
+                    class="text-teal-400">Questions</span></h2>
+
+            <div class="space-y-4">
+                <details class="bg-slate-900 border border-slate-800 rounded-lg group">
+                    <summary class="flex justify-between items-center p-4 cursor-pointer font-medium text-slate-200">
+                        <span>Are you looking for internships or junior roles?</span>
+                        <span class="transition-transform group-open:rotate-180"><i
+                                class="fa-solid fa-chevron-down"></i></span>
+                    </summary>
+                    <div class="p-4 text-slate-400 border-t border-slate-800 text-sm">
+                        Yes. I am open to internships and entry-level positions where I can learn and contribute with a
+                        strong documentation and verification mindset.
+                    </div>
+                </details>
+
+                <details class="bg-slate-900 border border-slate-800 rounded-lg group">
+                    <summary class="flex justify-between items-center p-4 cursor-pointer font-medium text-slate-200">
+                        <span>What kind of projects do you publish here?</span>
+                        <span class="transition-transform group-open:rotate-180"><i
+                                class="fa-solid fa-chevron-down"></i></span>
+                    </summary>
+                    <div class="p-4 text-slate-400 border-t border-slate-800 text-sm">
+                        Mostly coursework and lab projects: identity (LDAP/AD), SSH, Linux services, and database
+                        exercises. I also include English write-ups and presentations when relevant.
+                    </div>
+                </details>
+
+                <details class="bg-slate-900 border border-slate-800 rounded-lg group">
+                    <summary class="flex justify-between items-center p-4 cursor-pointer font-medium text-slate-200">
+                        <span>How do you use AI ethically in this portfolio?</span>
+                        <span class="transition-transform group-open:rotate-180"><i
+                                class="fa-solid fa-chevron-down"></i></span>
+                    </summary>
+                    <div class="p-4 text-slate-400 border-t border-slate-800 text-sm">
+                        I use AI for brainstorming structure and proofreading. I always rewrite the final text, and all
+                        technical decisions, evidence, and project details are mine.
+                    </div>
+                </details>
+            </div>
+        </div>
+    </section>
+    <section id="contact" class="py-20 bg-slate-900/30">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold mb-12 text-center">Get In <span class="text-teal-400">Touch</span></h2>
+
+            <div class="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
+                <!-- Contact Info -->
+                <div class="space-y-8">
+                    <p class="text-slate-400 text-lg">
+                        Interested in collaborating on a project or need assistance with your systems? Fill out the form
+                        or reach out directly.
+                    </p>
+
+                    <div class="flex items-center gap-4">
+                        <div
+                            class="w-12 h-12 bg-slate-800 rounded-lg flex items-center justify-center text-teal-400 text-xl">
+                            <i class="fa-solid fa-envelope"></i>
+                        </div>
+                        <div>
+                            <div class="text-sm text-slate-500">Email</div>
+                            <div class="text-lg font-bold">
+                                <a class="hover:text-teal-200 transition-colors" href="mailto:ron393293@gmail.com">ron393293@gmail.com</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center gap-4">
+                        <div
+                            class="w-12 h-12 bg-slate-800 rounded-lg flex items-center justify-center text-slate-200 text-xl">
+                            <i class="fa-brands fa-github"></i>
+                        </div>
+                        <div>
+                            <div class="text-sm text-slate-500">GitHub</div>
+                            <div class="text-lg font-bold">
+                                <a class="hover:text-slate-100 transition-colors" href="https://github.com/rafika23399-cpu" target="_blank"
+                                    rel="noopener">github.com/rafika23399-cpu</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center gap-4">
+                        <div
+                            class="w-12 h-12 bg-slate-800 rounded-lg flex items-center justify-center text-blue-400 text-xl">
+                            <i class="fa-solid fa-location-dot"></i>
+                        </div>
+                        <div>
+                            <div class="text-sm text-slate-500">Location</div>
+                            <div class="text-lg font-bold">Barcelona, Spain</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <form id="contact-form" data-to="ron393293@gmail.com"
+                    class="bg-slate-950 p-8 rounded-2xl border border-slate-800 shadow-xl space-y-6">
+                    <div>
+                        <label for="name" class="block text-sm font-bold mb-2 text-slate-400">Name</label>
+                        <input type="text" id="name"
+                            class="w-full bg-slate-900 border border-slate-800 rounded-lg px-4 py-3 focus:outline-none focus:border-teal-500 text-slate-200 transition-colors"
+                            placeholder="Your Name">
+                    </div>
+                    <div>
+                        <label for="email" class="block text-sm font-bold mb-2 text-slate-400">Email</label>
+                        <input type="email" id="email"
+                            class="w-full bg-slate-900 border border-slate-800 rounded-lg px-4 py-3 focus:outline-none focus:border-teal-500 text-slate-200 transition-colors"
+                            placeholder="your@email.com">
+                    </div>
+                    <div>
+                        <label for="subject" class="block text-sm font-bold mb-2 text-slate-400">Subject</label>
+                        <input type="text" id="subject"
+                            class="w-full bg-slate-900 border border-slate-800 rounded-lg px-4 py-3 focus:outline-none focus:border-teal-500 text-slate-200 transition-colors"
+                            placeholder="Portfolio contact">
+                    </div>
+                    <div>
+                        <label for="message" class="block text-sm font-bold mb-2 text-slate-400">Message</label>
+                        <textarea id="message" rows="4"
+                            class="w-full bg-slate-900 border border-slate-800 rounded-lg px-4 py-3 focus:outline-none focus:border-teal-500 text-slate-200 transition-colors"
+                            placeholder="How can I help you?"></textarea>
+                    </div>
+                    <button type="submit"
+                        class="w-full bg-gradient-to-r from-teal-500 to-sky-500 hover:from-teal-400 hover:to-sky-400 text-slate-950 font-bold py-3 rounded-lg transition-all transform hover:scale-[1.02]">
+                        Open Email Draft
+                    </button>
+                    <p class="text-xs text-slate-500">
+                        This is a static site. The button opens a pre-filled email in your mail client (no messages are
+                        stored on the website).
+                    </p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-slate-900 py-8 border-t border-slate-800">
+        <div class="container mx-auto px-6 text-center text-slate-500 text-sm">
+            <p>&copy; <span id="year"></span> Rafael Ortiz Navarro. All rights reserved.</p>
+            <p class="mt-2">
+                AI note: I used AI tools to brainstorm structure and polish English. I reviewed, rewrote, and validated
+                all final content and project details.
+            </p>
+        </div>
+    </footer>
+
+    <script src="js/content.js"></script>
+    <script src="js/main.js"></script>
+
+    <!--Start of Tawk.to Script-->
+    <script type="text/javascript">
+        var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+        (function () {
+            var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+            s1.async = true;
+            s1.src = 'https://embed.tawk.to/697529746fc10119810a239a/1jfoqjsf4';
+            s1.charset = 'UTF-8';
+            s1.setAttribute('crossorigin', '*');
+            s0.parentNode.insertBefore(s1, s0);
+        })();
+    </script>
+    <!--End of Tawk.to Script-->
+</body>
+
+</html>

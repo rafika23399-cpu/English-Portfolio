@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>How I write clear technical English | Rafael Ortiz Navarro</title>
+    <meta name="description"
+        content="A simple structure for writing technical English: goal, steps, verification, and evidence." />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap"
+        rel="stylesheet" />
+
+    <script>
+        tailwind = window.tailwind || {};
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ["Space Grotesk", "ui-sans-serif", "system-ui", "sans-serif"],
+                        mono: ["IBM Plex Mono", "ui-monospace", "SFMono-Regular", "Menlo", "monospace"],
+                    },
+                },
+            },
+        };
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="stylesheet" href="../css/styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+
+<body class="bg-slate-950 text-slate-200 font-sans antialiased">
+    <header class="border-b border-slate-800 bg-slate-950/80 backdrop-blur-md sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4 flex items-center justify-between">
+            <a href="../index.html#blog" class="text-slate-300 hover:text-white transition-colors">
+                <i class="fa-solid fa-arrow-left mr-2"></i>Back to Blog
+            </a>
+            <a href="../index.html#home"
+                class="font-mono text-transparent bg-clip-text bg-gradient-to-r from-teal-300 to-sky-400 text-lg font-bold">&lt;RafaelOrtiz
+                /&gt;</a>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-6 py-16 max-w-3xl">
+        <div class="flex items-center gap-3 text-slate-400 text-sm mb-3">
+            <span class="inline-flex items-center gap-2"><i class="fa-solid fa-pen-nib text-slate-400"></i>Writing</span>
+            <span class="text-slate-600">•</span>
+            <span>2025-2026</span>
+        </div>
+
+        <h1 class="text-4xl font-bold leading-tight mb-6">How I write clear technical English</h1>
+
+        <p class="text-slate-400 leading-relaxed mb-10">
+            In this subject, my goal is not to sound "fancy". My goal is to be clear, correct, and professional. This
+            is the structure I follow when I write lab activities or project documentation.
+        </p>
+
+        <section class="space-y-4">
+            <h2 class="text-xl font-bold">My default structure</h2>
+            <div class="border border-slate-800 bg-slate-900/40 rounded-2xl p-6">
+                <ol class="list-decimal pl-6 text-slate-300 space-y-2">
+                    <li><span class="font-bold">Purpose</span>: what we want to achieve.</li>
+                    <li><span class="font-bold">Context</span>: lab setup, IPs, tools, constraints.</li>
+                    <li><span class="font-bold">Steps</span>: numbered, short sentences, one action per step.</li>
+                    <li><span class="font-bold">Verification</span>: commands that prove it works.</li>
+                    <li><span class="font-bold">Evidence</span>: screenshots + outputs, linked in the portfolio.</li>
+                </ol>
+            </div>
+        </section>
+
+        <section class="space-y-4 mt-10">
+            <h2 class="text-xl font-bold">Useful sentence starters</h2>
+            <ul class="list-disc pl-6 text-slate-300 space-y-2">
+                <li>"The goal of this task is to..."</li>
+                <li>"First, we configure..."</li>
+                <li>"To verify the configuration, we run..."</li>
+                <li>"The expected output is..."</li>
+                <li>"If the service fails, we check logs using..."</li>
+            </ul>
+        </section>
+
+        <section class="space-y-4 mt-10">
+            <h2 class="text-xl font-bold">A mini-template (copy/paste)</h2>
+            <div class="bg-slate-900 border border-slate-800 rounded-xl p-5 font-mono text-sm text-slate-200">
+                <pre class="whitespace-pre-wrap">Title: Activity - [topic]
+
+Purpose:
+In this activity, we [goal].
+
+Environment:
+- OS: [Ubuntu 22.04 / Windows Server ...]
+- IPs: [client IP], [server IP]
+- Tools: [tool list]
+
+Procedure:
+1) ...
+2) ...
+3) ...
+
+Verification:
+- Command: ...
+- Expected result: ...
+
+Evidence:
+- Screenshot: [name.png]
+- PDF/Write-up: [link]</pre>
+            </div>
+            <p class="text-xs text-slate-500">
+                Placeholder: adapt to the teacher's requested format and add screenshots.
+            </p>
+        </section>
+    </main>
+
+    <footer class="border-t border-slate-800 bg-slate-900 py-8">
+        <div class="container mx-auto px-6 text-center text-slate-500 text-sm">
+            <p>&copy; <span id="year"></span> Rafael Ortiz Navarro. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        const yearEl = document.getElementById("year");
+        if (yearEl) yearEl.textContent = new Date().getFullYear();
+    </script>
+
+    <!--Start of Tawk.to Script-->
+    <script type="text/javascript">
+        var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+        (function () {
+            var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+            s1.async = true;
+            s1.src = 'https://embed.tawk.to/697529746fc10119810a239a/1jfoqjsf4';
+            s1.charset = 'UTF-8';
+            s1.setAttribute('crossorigin', '*');
+            s0.parentNode.insertBefore(s1, s0);
+        })();
+    </script>
+    <!--End of Tawk.to Script-->
+</body>
+
+</html>

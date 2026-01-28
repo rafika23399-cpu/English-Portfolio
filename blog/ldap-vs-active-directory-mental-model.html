@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LDAP vs Active Directory: the mental model | Rafael Ortiz Navarro</title>
+    <meta name="description"
+        content="A beginner-friendly LDAP vs Active Directory mental model with practical verification commands." />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap"
+        rel="stylesheet" />
+
+    <script>
+        tailwind = window.tailwind || {};
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ["Space Grotesk", "ui-sans-serif", "system-ui", "sans-serif"],
+                        mono: ["IBM Plex Mono", "ui-monospace", "SFMono-Regular", "Menlo", "monospace"],
+                    },
+                },
+            },
+        };
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="stylesheet" href="../css/styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+
+<body class="bg-slate-950 text-slate-200 font-sans antialiased">
+    <header class="border-b border-slate-800 bg-slate-950/80 backdrop-blur-md sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4 flex items-center justify-between">
+            <a href="../index.html#blog" class="text-slate-300 hover:text-white transition-colors">
+                <i class="fa-solid fa-arrow-left mr-2"></i>Back to Blog
+            </a>
+            <a href="../index.html#home"
+                class="font-mono text-transparent bg-clip-text bg-gradient-to-r from-teal-300 to-sky-400 text-lg font-bold">&lt;RafaelOrtiz
+                /&gt;</a>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-6 py-16 max-w-3xl">
+        <div class="flex items-center gap-3 text-slate-400 text-sm mb-3">
+            <span class="inline-flex items-center gap-2"><i class="fa-solid fa-database text-slate-400"></i>Portfolio</span>
+            <span class="text-slate-600">•</span>
+            <span>2025-2026</span>
+        </div>
+
+        <h1 class="text-4xl font-bold leading-tight mb-6">LDAP vs Active Directory: the mental model</h1>
+
+        <p class="text-slate-400 leading-relaxed mb-8">
+            When I started working on identity labs, I confused "LDAP", "directory", "Active Directory" and
+            "authentication". This post is my simplified mental model, based on coursework labs.
+        </p>
+
+        <section class="space-y-4">
+            <h2 class="text-xl font-bold">The short version</h2>
+            <div class="border border-slate-800 bg-slate-900/40 rounded-2xl p-6">
+                <p class="text-slate-300">
+                    <span class="font-bold text-teal-300">LDAP</span> is a protocol to query directory information.
+                    <br />
+                    <span class="font-bold text-sky-300">Active Directory</span> is a Microsoft directory service that
+                    uses LDAP (plus many other components).
+                </p>
+            </div>
+        </section>
+
+        <section class="space-y-4 mt-10">
+            <h2 class="text-xl font-bold">What problem do they solve?</h2>
+            <ul class="list-disc pl-6 text-slate-300 space-y-2">
+                <li><span class="font-bold">Central identity</span>: users, groups, and attributes live in one place.</li>
+                <li><span class="font-bold">Consistent logins</span>: many machines can use the same identity source.</li>
+                <li><span class="font-bold">Auditability</span>: you can reason about access and changes over time.</li>
+            </ul>
+        </section>
+
+        <section class="space-y-4 mt-10">
+            <h2 class="text-xl font-bold">Practical checks I use in Linux labs</h2>
+            <div class="bg-slate-900 border border-slate-800 rounded-xl p-5 font-mono text-sm text-slate-200">
+                <pre class="whitespace-pre-wrap"># Is the user visible via NSS?
+getent passwd &lt;username&gt;
+
+# Are groups visible?
+getent group | head
+
+# Is the client talking to the directory service?
+systemctl status sssd --no-pager  # or nslcd/nscd depending on the lab</pre>
+            </div>
+            <p class="text-xs text-slate-500">
+                Placeholder: replace &lt;username&gt; and service names based on your lab (LDAP client vs AD join).
+            </p>
+        </section>
+
+        <section class="space-y-4 mt-10">
+            <h2 class="text-xl font-bold">Common mistakes (and how I spot them)</h2>
+            <ul class="list-disc pl-6 text-slate-300 space-y-2">
+                <li>Wrong base DN / domain name: look for errors in logs and config files.</li>
+                <li>DNS problems: domain joins and Kerberos are sensitive to DNS.</li>
+                <li>Time drift: Kerberos can fail if clocks are out of sync.</li>
+                <li>Permissions: user exists but cannot access home or resources.</li>
+            </ul>
+            <p class="text-slate-400">
+                [[TODO: Add 1 screenshot of a real error and how I fixed it.]]
+            </p>
+        </section>
+
+        <div class="mt-14 p-5 rounded-2xl border border-slate-800 bg-slate-900/40">
+            <div class="text-sm text-slate-400">Reflection prompt</div>
+            <div class="font-bold mt-1">If a user is not visible in <code class="font-mono">getent</code>, where do you
+                check first: DNS, service status, or config?</div>
+        </div>
+    </main>
+
+    <footer class="border-t border-slate-800 bg-slate-900 py-8">
+        <div class="container mx-auto px-6 text-center text-slate-500 text-sm">
+            <p>&copy; <span id="year"></span> Rafael Ortiz Navarro. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        const yearEl = document.getElementById("year");
+        if (yearEl) yearEl.textContent = new Date().getFullYear();
+    </script>
+
+    <!--Start of Tawk.to Script-->
+    <script type="text/javascript">
+        var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+        (function () {
+            var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+            s1.async = true;
+            s1.src = 'https://embed.tawk.to/697529746fc10119810a239a/1jfoqjsf4';
+            s1.charset = 'UTF-8';
+            s1.setAttribute('crossorigin', '*');
+            s0.parentNode.insertBefore(s1, s0);
+        })();
+    </script>
+    <!--End of Tawk.to Script-->
+</body>
+
+</html>
