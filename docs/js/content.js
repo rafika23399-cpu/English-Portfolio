@@ -14,12 +14,13 @@ window.PORTFOLIO_DELIVERABLES = [
         // href: "assets/pdfs/english/portfolio-website.pdf",
     },
     {
-        id: "pe-first-task-placeholder",
-        date: "2026-02",
-        type: "Planned",
-        title: "First Professional Challenge (TBD)",
-        summary: "Placeholder entry. Replace with the real task title and attach the PDF when it is submitted.",
-        tags: ["Professional Challenge"],
+        id: "pe-workplace-vocabulary",
+        date: "2026-01",
+        type: "Daily work",
+        title: "Workplace Vocabulary: to+inf and -ing form",
+        summary: "Grammar exercise covering the use of infinitive (to + verb) and gerund (-ing) forms in professional English contexts.",
+        tags: ["Grammar", "Professional English"],
+        href: "assets/pdfs/english/workplace-vocabulary-to-inf-ing.pdf",
     },
 ];
 
