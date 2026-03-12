@@ -123,28 +123,24 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Contact form: static site fallback (no backend).
-    // This opens a pre-filled email in the user's default mail client.
-    const form = document.getElementById('contact-form');
-    if (form) {
-        form.addEventListener('submit', (e) => {
-            e.preventDefault();
-
-            const name = (document.getElementById('name')?.value || '').trim();
-            const email = (document.getElementById('email')?.value || '').trim();
-            const subject = (document.getElementById('subject')?.value || 'Portfolio contact').trim();
-            const message = (document.getElementById('message')?.value || '').trim();
-
-            const to = form.getAttribute('data-to') || 'rafa.ortiz@example.student.dev';
-            const bodyLines = [
-                `Name: ${name || '-'}`,
-                `Email: ${email || '-'}`,
-                '',
-                message || '(no message)',
-            ];
-
-            const href = `mailto:${encodeURIComponent(to)}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(bodyLines.join('\\n'))}`;
-            window.location.href = href;
+    // Tawk.to chat: open widget when "Start a Chat" button or nav Contact link is clicked
+    const tawkBtn = document.getElementById('open-tawk-btn');
+    if (tawkBtn) {
+        tawkBtn.addEventListener('click', () => {
+            if (typeof Tawk_API !== 'undefined' && Tawk_API.maximize) {
+                Tawk_API.maximize();
+            }
         });
     }
+
+    // Also open Tawk when clicking any #contact nav link
+    document.querySelectorAll('a[href="#contact"]').forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            if (typeof Tawk_API !== 'undefined' && Tawk_API.maximize) {
+                Tawk_API.maximize();
+            }
+            document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+        });
+    });
 });

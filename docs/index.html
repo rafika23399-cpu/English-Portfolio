@@ -604,92 +604,40 @@
         </div>
     </section>
     <section id="contact" class="py-20 bg-slate-900/30">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold mb-12 text-center">Get In <span class="text-teal-400">Touch</span></h2>
+        <div class="container mx-auto px-6 max-w-3xl text-center">
+            <h2 class="text-3xl font-bold mb-6">Get In <span class="text-teal-400">Touch</span></h2>
+            <p class="text-slate-400 text-lg mb-10">
+                Have a question about a project, want to collaborate, or just want to say hi? Start a conversation directly.
+            </p>
 
-            <div class="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
-                <!-- Contact Info -->
-                <div class="space-y-8">
-                    <p class="text-slate-400 text-lg">
-                        Interested in collaborating on a project or need assistance with your systems? Fill out the form
-                        or reach out directly.
-                    </p>
+            <button id="open-tawk-btn"
+                class="inline-flex items-center gap-3 px-10 py-4 bg-gradient-to-r from-teal-500 to-sky-500 hover:from-teal-400 hover:to-sky-400 text-slate-950 font-bold text-lg rounded-xl transition-all transform hover:scale-105 shadow-lg shadow-teal-500/20">
+                <i class="fa-solid fa-comments text-xl"></i>
+                Start a Chat
+            </button>
 
-                    <div class="flex items-center gap-4">
-                        <div
-                            class="w-12 h-12 bg-slate-800 rounded-lg flex items-center justify-center text-teal-400 text-xl">
-                            <i class="fa-solid fa-envelope"></i>
-                        </div>
-                        <div>
-                            <div class="text-sm text-slate-500">Email</div>
-                            <div class="text-lg font-bold">
-                                <a class="hover:text-teal-200 transition-colors" href="mailto:ron393293@gmail.com">ron393293@gmail.com</a>
-                            </div>
-                        </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-14">
+                <div class="flex flex-col items-center gap-2 p-5 bg-slate-950 border border-slate-800 rounded-xl">
+                    <div class="w-11 h-11 bg-teal-500/20 rounded-lg flex items-center justify-center text-teal-400 text-lg">
+                        <i class="fa-solid fa-envelope"></i>
                     </div>
-
-                    <div class="flex items-center gap-4">
-                        <div
-                            class="w-12 h-12 bg-slate-800 rounded-lg flex items-center justify-center text-slate-200 text-xl">
-                            <i class="fa-brands fa-github"></i>
-                        </div>
-                        <div>
-                            <div class="text-sm text-slate-500">GitHub</div>
-                            <div class="text-lg font-bold">
-                                <a class="hover:text-slate-100 transition-colors" href="https://github.com/rafika23399-cpu" target="_blank"
-                                    rel="noopener">github.com/rafika23399-cpu</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="flex items-center gap-4">
-                        <div
-                            class="w-12 h-12 bg-slate-800 rounded-lg flex items-center justify-center text-blue-400 text-xl">
-                            <i class="fa-solid fa-location-dot"></i>
-                        </div>
-                        <div>
-                            <div class="text-sm text-slate-500">Location</div>
-                            <div class="text-lg font-bold">Barcelona, Spain</div>
-                        </div>
-                    </div>
+                    <span class="text-sm text-slate-500">Email</span>
+                    <a class="text-sm font-bold hover:text-teal-200 transition-colors" href="mailto:ron393293@gmail.com">ron393293@gmail.com</a>
                 </div>
-
-                <!-- Contact Form -->
-                <form id="contact-form" data-to="ron393293@gmail.com"
-                    class="bg-slate-950 p-8 rounded-2xl border border-slate-800 shadow-xl space-y-6">
-                    <div>
-                        <label for="name" class="block text-sm font-bold mb-2 text-slate-400">Name</label>
-                        <input type="text" id="name"
-                            class="w-full bg-slate-900 border border-slate-800 rounded-lg px-4 py-3 focus:outline-none focus:border-teal-500 text-slate-200 transition-colors"
-                            placeholder="Your Name">
+                <div class="flex flex-col items-center gap-2 p-5 bg-slate-950 border border-slate-800 rounded-xl">
+                    <div class="w-11 h-11 bg-slate-700/40 rounded-lg flex items-center justify-center text-slate-200 text-lg">
+                        <i class="fa-brands fa-github"></i>
                     </div>
-                    <div>
-                        <label for="email" class="block text-sm font-bold mb-2 text-slate-400">Email</label>
-                        <input type="email" id="email"
-                            class="w-full bg-slate-900 border border-slate-800 rounded-lg px-4 py-3 focus:outline-none focus:border-teal-500 text-slate-200 transition-colors"
-                            placeholder="your@email.com">
+                    <span class="text-sm text-slate-500">GitHub</span>
+                    <a class="text-sm font-bold hover:text-slate-100 transition-colors" href="https://github.com/rafika23399-cpu" target="_blank" rel="noopener">rafika23399-cpu</a>
+                </div>
+                <div class="flex flex-col items-center gap-2 p-5 bg-slate-950 border border-slate-800 rounded-xl">
+                    <div class="w-11 h-11 bg-blue-500/20 rounded-lg flex items-center justify-center text-blue-400 text-lg">
+                        <i class="fa-solid fa-location-dot"></i>
                     </div>
-                    <div>
-                        <label for="subject" class="block text-sm font-bold mb-2 text-slate-400">Subject</label>
-                        <input type="text" id="subject"
-                            class="w-full bg-slate-900 border border-slate-800 rounded-lg px-4 py-3 focus:outline-none focus:border-teal-500 text-slate-200 transition-colors"
-                            placeholder="Portfolio contact">
-                    </div>
-                    <div>
-                        <label for="message" class="block text-sm font-bold mb-2 text-slate-400">Message</label>
-                        <textarea id="message" rows="4"
-                            class="w-full bg-slate-900 border border-slate-800 rounded-lg px-4 py-3 focus:outline-none focus:border-teal-500 text-slate-200 transition-colors"
-                            placeholder="How can I help you?"></textarea>
-                    </div>
-                    <button type="submit"
-                        class="w-full bg-gradient-to-r from-teal-500 to-sky-500 hover:from-teal-400 hover:to-sky-400 text-slate-950 font-bold py-3 rounded-lg transition-all transform hover:scale-[1.02]">
-                        Open Email Draft
-                    </button>
-                    <p class="text-xs text-slate-500">
-                        This is a static site. The button opens a pre-filled email in your mail client (no messages are
-                        stored on the website).
-                    </p>
-                </form>
+                    <span class="text-sm text-slate-500">Location</span>
+                    <span class="text-sm font-bold">Barcelona, Spain</span>
+                </div>
             </div>
         </div>
     </section>
