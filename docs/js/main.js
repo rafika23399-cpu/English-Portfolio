@@ -21,14 +21,28 @@ document.addEventListener('DOMContentLoaded', () => {
                 `<span class="text-xs text-slate-500 border border-slate-700 px-2 py-1 rounded">${t}</span>`
             )).join('');
 
-            const buttonHtml = href
-                ? `<a href="${href}" target="_blank" rel="noopener"
-                        class="inline-flex items-center gap-2 px-4 py-2 bg-teal-500 hover:bg-teal-400 text-slate-950 font-bold rounded-lg transition-colors">
-                        <i class="fa-solid fa-file-pdf"></i> Open PDF
-                   </a>`
-                : `<span class="inline-flex items-center gap-2 px-4 py-2 bg-slate-800 text-slate-300 font-bold rounded-lg">
+            const videoHref = item.videoHref || '';
+
+            let buttonHtml;
+            if (href || videoHref) {
+                const pdfBtn = href
+                    ? `<a href="${href}" target="_blank" rel="noopener"
+                            class="inline-flex items-center gap-2 px-4 py-2 bg-teal-500 hover:bg-teal-400 text-slate-950 font-bold rounded-lg transition-colors">
+                            <i class="fa-solid fa-file-pdf"></i> PDF
+                       </a>`
+                    : '';
+                const videoBtn = videoHref
+                    ? `<a href="${videoHref}" target="_blank" rel="noopener"
+                            class="inline-flex items-center gap-2 px-4 py-2 bg-indigo-500 hover:bg-indigo-400 text-white font-bold rounded-lg transition-colors">
+                            <i class="fa-solid fa-video"></i> Video
+                       </a>`
+                    : '';
+                buttonHtml = `<div class="flex gap-2">${pdfBtn}${videoBtn}</div>`;
+            } else {
+                buttonHtml = `<span class="inline-flex items-center gap-2 px-4 py-2 bg-slate-800 text-slate-300 font-bold rounded-lg">
                         <i class="fa-solid fa-hourglass-half"></i> Planned
                    </span>`;
+            }
 
             return `
                 <article class="bg-slate-950 border border-slate-800 rounded-2xl p-6 hover:border-teal-500/60 transition-colors">
